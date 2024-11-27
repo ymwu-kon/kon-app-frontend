@@ -1,28 +1,25 @@
 <template>
-    <YakumanCard
-        v-for="(yakuman, index) in yakumanList"
-        :key="index"
-        :yakuman="yakuman"
-        class="yakuman-card"
-    />
+    <div>
+        <loading ref="loaderMaskRef"></loading>
+
+        <YakumanCard
+            v-for="(yakuman, index) in yakumanList"
+            :key="index"
+            :yakuman="yakuman"
+            class="yakuman-card"
+        />
+    </div>
 </template>
 
 <script setup name="Yakuman">
-import { ref, onMounted } from "vue";
-import { getYakuman } from "@/axios/yakuman";
 import YakumanCard from "@/components/YakumanCard.vue";
+import Loading from "@/components/Loading.vue";
 
-let yakumanList = ref([]);
-onMounted(async () => {
-    const res = await getYakuman();
-    yakumanList.value = (res?.data || []).sort((a, b) => {
-        if (a.date === b.date) {
-            return a.timestamp - b.timestamp;
-        }
+import { useLoading } from "@/hooks/useLoading";
+const { showLoading, hideLoading, loaderMaskRef } = useLoading();
 
-        return a.date - b.date;
-    });
-});
+import { useYakuman } from "./hooks/useYakuman";
+const { yakumanList } = useYakuman({ showLoading, hideLoading });
 </script>
 
 <style scoped>

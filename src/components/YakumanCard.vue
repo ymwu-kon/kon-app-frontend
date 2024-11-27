@@ -9,14 +9,12 @@
                 <div class="yakuman-desc">{{ yakumanDesc }}</div>
             </div>
         </div>
-        <div class="yakuman-content">
-            <div class="majongs">
-                <div
-                    v-for="(item, index) in mahjongs"
-                    :key="index"
-                    :class="item === '-' ? 'gapLeft' : `majong ${item}`"
-                ></div>
-            </div>
+        <div class="yakuman-content majongs">
+            <div
+                v-for="(item, index) in mahjongs"
+                :key="index"
+                :class="item === '-' ? 'gapLeft' : `majong ${item}`"
+            ></div>
         </div>
     </div>
 </template>
