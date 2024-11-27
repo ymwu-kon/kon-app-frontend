@@ -74,8 +74,8 @@ watchEffect(() => {
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 10;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     margin-bottom: 10px;
     z-index: 10;
 }

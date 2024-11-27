@@ -10,16 +10,16 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "LogoTextComponent",
-    props: {
-        logoSrc: {
-            type: String,
-            required: true,
-        },
+<script setup>
+import { defineProps } from "vue";
+
+// 定义 props
+const props = defineProps({
+    logoSrc: {
+        type: String,
+        required: true,
     },
-};
+});
 </script>
 
 <style scoped>
@@ -43,8 +43,8 @@ export default {
 .text-container {
     /* 根据需要添加文本样式 */
     color: var(--text-color);
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 12px;
 }
 </style>

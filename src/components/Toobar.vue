@@ -6,8 +6,7 @@
             <button
                 v-for="(item, index) in buttonData"
                 :key="index"
-                class="custom-button"
-                :class="{ 'is-selected': item.isSelected }"
+                :class="{ 'is-selected': item.isSelected, 'custom-button': true }"
                 @mouseover="item.hover = true"
                 @mouseleave="item.hover = false"
                 @click="selectItem(item)"
@@ -21,8 +20,7 @@
             <Icon
                 v-for="(item, index) in footerData"
                 :key="index"
-                :iconUrl="item.iconUrl"
-                :imageUrl="item.imageUrl"
+                v-bind="item"
                 :class="[index === 0 ? '' : 'footer-icon-size']"
             />
         </div>
@@ -67,7 +65,7 @@ const selectItem = item => {
     display: flex;
     flex-direction: column;
     gap: 4px; /* 按钮之间的间隔 */
-    margin-top: 16px;
+    margin-top: 32px;
 }
 
 .custom-button {

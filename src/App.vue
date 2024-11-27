@@ -14,9 +14,12 @@ import Toobar from "./components/Toobar.vue";
 </template>
 
 <style scoped lang="scss">
+// import "ant-design-vue/dist/reset.css";
+
 .mainCls {
     height: 100%;
     display: flex;
+    overflow: hidden;
 }
 .leftCls {
     width: 250px;
@@ -30,6 +33,7 @@ import Toobar from "./components/Toobar.vue";
     flex: 1;
     height: 100%;
     padding: 20px;
+    overflow-y: auto;
     border-left: 1px solid var(--border-color); /* 添加1px的白色细线 */
 }
 </style>
