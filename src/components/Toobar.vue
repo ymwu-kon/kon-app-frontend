@@ -28,36 +28,12 @@
 </template>
 
 <script setup name="Toolbar">
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-
 import Logo from "./Logo.vue";
-import logoSrc from "../assets/logo.png";
-import yakumanIcon from "../assets/yakuman.png";
 import Icon from "./Icon.vue";
-import chatIcon from "../assets/chat.png";
-import miniIcon from "../assets/mini.png";
-import contactQr from "../assets/contact-qr.jpg";
-import miniQr from "../assets/mini-qr.png";
+import logoSrc from "../assets/logo.png";
+import { useToobar } from "./hooks/useToobar";
 
-const logoName = ref("轻音日麻馆");
-const buttonData = ref([{ icon: yakumanIcon, text: "役满墙", isSelected: true, path: "/yakuman" }]);
-const footerData = ref([
-    {
-        iconUrl: chatIcon,
-        imageUrl: contactQr,
-    },
-    {
-        iconUrl: miniIcon,
-        imageUrl: miniQr,
-    },
-]);
-
-const router = useRouter();
-
-const selectItem = item => {
-    router.push(item.path);
-};
+const { buttonData, footerData, selectItem, logoName } = useToobar();
 </script>
 
 <style scoped lang="scss">

@@ -30,20 +30,20 @@ const props = defineProps({
 }
 
 .logo-container {
-    height: 80px;
+    height: 60px;
     background-color: var(--text-color);
     border-radius: 50%;
 }
 
 .logo {
-    width: 80px; /* 设置Logo的宽度，根据需要调整 */
+    width: 60px; /* 设置Logo的宽度，根据需要调整 */
     height: auto; /* 高度自适应 */
 }
 
 .text-container {
     /* 根据需要添加文本样式 */
     color: var(--text-color);
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     margin-left: 12px;
 }
