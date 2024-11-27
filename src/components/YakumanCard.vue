@@ -77,8 +77,8 @@ const yakumanDesc = computed(() => {
 
 .majongs {
     .majong {
-        width: 48px;
-        height: 69px;
+        width: 50px;
+        height: 72px;
         display: inline-block;
         background-position: center;
         background-repeat: no-repeat;
@@ -87,7 +87,7 @@ const yakumanDesc = computed(() => {
 
     .gapLeft {
         display: inline-block;
-        margin-left: 4px;
+        margin-left: 10px;
     }
 }
 </style>
