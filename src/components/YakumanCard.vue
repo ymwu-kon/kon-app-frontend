@@ -29,11 +29,11 @@ const props = defineProps({
 });
 
 const date = computed(() => {
-    return new Date(props.yakuman.date).toLocaleDateString();
+    return new Date(Number(props.yakuman.date)).toLocaleDateString();
 });
 
 const nickName = computed(() => {
-    return props.yakuman.tag;
+    return props.yakuman.nickName;
 });
 
 const mahjongs = computed(() => {
