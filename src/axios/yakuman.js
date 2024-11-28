@@ -1,5 +1,6 @@
 import http from "./http";
 
-export const getYakuman = () => {
-    return http.get("/yakuman");
+export const getYakuman = async () => {
+    const data = await http.get("/yakuman");
+    return data;
 };

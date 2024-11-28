@@ -1,10 +1,12 @@
 <template>
     <div class="toolbar">
-        <logo :logoSrc="logoSrc">{{ logoName }}</logo>
+        <!-- 企业LOGO -->
+        <logo />
 
+        <!-- 导航栏  -->
         <div class="button-container">
             <button
-                v-for="(item, index) in buttonData"
+                v-for="(item, index) in tabsData"
                 :key="index"
                 :class="{ 'is-selected': item.isSelected, 'custom-button': true }"
                 @mouseover="item.hover = true"
@@ -16,6 +18,7 @@
             </button>
         </div>
 
+        <!-- 底部联系栏  -->
         <div class="footer">
             <Icon
                 v-for="(item, index) in footerData"
@@ -28,12 +31,15 @@
 </template>
 
 <script setup name="Toolbar">
+/**
+ * @file 导航栏组件
+ * 企业LOGO+导航栏+底部联系栏
+ */
 import Logo from "./Logo.vue";
 import Icon from "./Icon.vue";
-import logoSrc from "../assets/logo.png";
-import { useToobar } from "./hooks/useToobar";
+import { useToolbar } from "./hooks/useToolbar";
 
-const { buttonData, footerData, selectItem, logoName } = useToobar();
+const { tabsData, footerData, selectItem } = useToolbar();
 </script>
 
 <style scoped lang="scss">
@@ -106,5 +112,46 @@ const { buttonData, footerData, selectItem, logoName } = useToobar();
 
 .footer-icon-size {
     margin-left: 16px;
+}
+
+/* 移动端样式 */
+@media (max-width: 600px) {
+    /* 适用于手机屏幕的样式 */
+    .button-container {
+        margin-top: 16px;
+    }
+
+    .icon-size {
+        width: 8px;
+        height: 8px;
+    }
+
+    .footer-icon-size {
+        margin-left: 4px;
+    }
+
+    .custom-button {
+        height: 32px;
+        padding: 0 8px;
+        font-size: 12px;
+    }
+}
+
+/* 平板端样式 */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* 适用于平板屏幕的样式 */
+
+    .icon-size {
+        width: 14px;
+        height: 14px;
+    }
+
+    .footer-icon-size {
+        margin-left: 10px;
+    }
+
+    .custom-button {
+        height: 40px;
+    }
 }
 </style>

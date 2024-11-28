@@ -1,0 +1,1 @@
+export const companyName = "轻音日麻馆";

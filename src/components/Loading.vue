@@ -1,37 +1,30 @@
-<!-- LoaderMask.vue -->
 <template>
     <div v-if="visible" class="loader-overlay">
         <div class="loader"></div>
     </div>
 </template>
 
-<script>
+<script setup name="Loading">
+/**
+ * @file 加载中动画组件
+ */
 import { ref } from "vue";
 
-export default {
-    name: "LoaderMask",
-    setup(_, { expose }) {
-        const visible = ref(false);
+const visible = ref(false);
 
-        function showMask() {
-            visible.value = true;
-        }
+function showMask() {
+    visible.value = true;
+}
 
-        function hideMask() {
-            visible.value = false;
-        }
+function hideMask() {
+    visible.value = false;
+}
 
-        // 将 showMask 和 hideMask 方法暴露给组件的 ref
-        expose({
-            showMask,
-            hideMask,
-        });
-
-        return {
-            visible,
-        };
-    },
-};
+// 将 showMask 和 hideMask 方法暴露给组件的 ref
+defineExpose({
+    showMask,
+    hideMask,
+});
 </script>
 
 <style>
@@ -49,11 +42,11 @@ export default {
 }
 
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid var(--text-color);
+    border-top: 16px solid var(--secondary-color);
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     animation: spin 2s linear infinite;
 }
 

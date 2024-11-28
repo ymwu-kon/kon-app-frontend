@@ -4,20 +4,22 @@
             <img :src="logoSrc" alt="Logo" class="logo" />
         </div>
         <div class="text-container">
-            <slot></slot>
-            <!-- 使用slot插槽来插入文本 -->
+            <slot>{{ companyName }}</slot>
         </div>
     </div>
 </template>
 
-<script setup>
-import { defineProps } from "vue";
+<script setup name="Logo">
+/**
+ * @file 企业Logo组件
+ */
+import LogoSrc from "@/assets/logo.png";
+import { companyName } from "@/static/company";
 
-// 定义 props
 const props = defineProps({
     logoSrc: {
         type: String,
-        required: true,
+        default: LogoSrc,
     },
 });
 </script>
@@ -46,5 +48,48 @@ const props = defineProps({
     font-size: 26px;
     font-weight: bold;
     margin-left: 12px;
+}
+
+/* 移动端样式 */
+@media (max-width: 600px) {
+    .logo-text-container {
+        display: block;
+    }
+
+    /* 适用于手机屏幕的样式 */
+    .logo-container {
+        width: 25px;
+        height: 25px;
+        margin: 0 auto;
+        margin-top: 2vh;
+    }
+
+    .logo {
+        width: 25px; /* 设置Logo的宽度，根据需要调整 */
+    }
+    .text-container {
+        /* 根据需要添加文本样式 */
+        font-size: 12px;
+        margin-top: 1vh;
+        margin-left: 0px;
+        text-align: center;
+    }
+}
+
+/* 平板端样式 */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* 适用于平板屏幕的样式 */
+    .logo-container {
+        height: 25px;
+    }
+
+    .logo {
+        width: 25px; /* 设置Logo的宽度，根据需要调整 */
+    }
+    .text-container {
+        /* 根据需要添加文本样式 */
+        font-size: 18px;
+        margin-left: 8px;
+    }
 }
 </style>

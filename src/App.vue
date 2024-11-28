@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Toobar from "./components/Toobar.vue";
+import Toolbar from "./components/Toolbar.vue";
 </script>
 
 <template>
     <div class="mainCls">
         <div class="leftCls">
-            <Toobar />
+            <Toolbar />
         </div>
         <div class="rightCls">
             <router-view></router-view>
@@ -14,8 +14,6 @@ import Toobar from "./components/Toobar.vue";
 </template>
 
 <style scoped lang="scss">
-// import "ant-design-vue/dist/reset.css";
-
 .mainCls {
     height: 100%;
     display: flex;
@@ -35,5 +33,29 @@ import Toobar from "./components/Toobar.vue";
     padding: 20px;
     overflow-y: auto;
     border-left: 1px solid var(--border-color); /* 添加1px的白色细线 */
+}
+
+/* 移动端样式 */
+@media (max-width: 600px) {
+    /* 适用于手机屏幕的样式 */
+    .leftCls {
+        width: 80px;
+        padding: 4px;
+    }
+    .rightCls {
+        padding: 10px;
+    }
+}
+
+/* 平板端样式 */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* 适用于平板屏幕的样式 */
+    .leftCls {
+        width: 160px;
+        padding: 16px;
+    }
+    .rightCls {
+        padding: 16px;
+    }
 }
 </style>

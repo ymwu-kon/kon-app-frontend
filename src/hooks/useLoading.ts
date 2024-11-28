@@ -1,5 +1,8 @@
 import { ref } from "vue";
 
+/**
+ * 搭配Loading组件使用
+ */
 export const useLoading = () => {
     const loaderMaskRef = ref(null);
 

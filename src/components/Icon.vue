@@ -14,7 +14,11 @@
     </div>
 </template>
 
-<script setup>
+<script setup name="Icon">
+/**
+ * @file 按钮组件
+ * 鼠标悬浮在按钮上显示浮层，浮层内显示图片
+ */
 import { ref, reactive, watchEffect } from "vue";
 
 const props = defineProps({
@@ -34,6 +38,7 @@ const tooltipStyle = reactive({
     left: "0px",
 });
 
+// 将tooltip定位到按钮上方
 watchEffect(() => {
     if (showTooltip.value && buttonRef.value) {
         const buttonRect = buttonRef.value.getBoundingClientRect();
@@ -42,7 +47,7 @@ watchEffect(() => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .icon-button {
     width: 36px;
     height: 36px;
@@ -83,5 +88,29 @@ watchEffect(() => {
 .tooltip img {
     max-width: 100px;
     max-height: 100px;
+}
+
+/* 移动端样式 */
+@media (max-width: 600px) {
+    .icon-button {
+        width: 28px;
+        height: 28px;
+    }
+    .tooltip {
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .icon-image {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tooltip img {
+        max-width: 50px;
+        max-height: 50px;
+    }
 }
 </style>

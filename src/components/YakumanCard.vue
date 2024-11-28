@@ -20,7 +20,10 @@
 </template>
 
 <script setup name="YakumanCard">
-import { ref, defineProps, computed } from "vue";
+/**
+ * @file 役满卡片组件
+ */
+import { computed } from "vue";
 const props = defineProps({
     yakuman: {
         type: Object,
@@ -71,8 +74,10 @@ const yakumanDesc = computed(() => {
 }
 
 .yakuman-header-right {
-    width: 100px;
+    width: auto;
     line-height: 70px;
+    float: right;
+    color: var(--primary-color);
 }
 
 .majongs {
@@ -88,6 +93,70 @@ const yakumanDesc = computed(() => {
     .gapLeft {
         display: inline-block;
         margin-left: 10px;
+    }
+}
+
+/* 移动端样式 */
+@media (max-width: 600px) {
+    /* 适用于手机屏幕的样式 */
+    .yakuman-header {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .yakuman-header-left {
+        line-height: 40px;
+    }
+
+    .yakuman-header-right {
+        line-height: 40px;
+    }
+
+    .majongs {
+        .majong {
+            width: 14px;
+            height: 20px;
+        }
+
+        .gapLeft {
+            margin-left: 4px;
+        }
+    }
+
+    .yakuman-content {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .yakuman-card {
+        border-radius: 10px;
+    }
+}
+
+/* 平板端样式 */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* 适用于平板屏幕的样式 */
+    .yakuman-header {
+        height: 50px;
+    }
+
+    .yakuman-header-left {
+        line-height: 50px;
+    }
+
+    .yakuman-header-right {
+        line-height: 50px;
+    }
+
+    .majongs {
+        .majong {
+            width: 32px;
+            height: 46px;
+        }
+
+        .gapLeft {
+            margin-left: 8px;
+        }
     }
 }
 </style>

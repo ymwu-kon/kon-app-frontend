@@ -1,5 +1,5 @@
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, } from "vue";
+import { useRouter, } from "vue-router";
 
 import yakumanIcon from "@/assets/yakuman.png";
 import chatIcon from "@/assets/chat.png";
@@ -7,11 +7,8 @@ import miniIcon from "@/assets/mini.png";
 import contactQr from "@/assets/contact-qr.jpg";
 import miniQr from "@/assets/mini-qr.png";
 
-
-export const useToobar = () => {
-    const logoName = ref("轻音日麻馆");
-
-    const buttonData = ref([{ icon: yakumanIcon, text: "役满墙", isSelected: true, path: "/yakuman" }]);
+export const useToolbar = () => {
+    const tabsData = ref([{ icon: yakumanIcon, text: "役满墙", isSelected: true, path: "/yakuman" }]);
 
     const footerData = ref([
         {
@@ -25,14 +22,13 @@ export const useToobar = () => {
     ]);
 
     const router = useRouter();
-
-    const selectItem = item => {
+    const selectItem = (item: any) => {
         router.push(item.path);
     };
 
     return {
-        buttonData,
+        tabsData,
         footerData,
-        selectItem, logoName
+        selectItem,
     }
 };

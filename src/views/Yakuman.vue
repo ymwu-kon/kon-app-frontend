@@ -1,7 +1,5 @@
 <template>
     <div>
-        <loading ref="loaderMaskRef"></loading>
-
         <YakumanCard
             v-for="(yakuman, index) in yakumanList"
             :key="index"
@@ -13,18 +11,21 @@
 
 <script setup name="Yakuman">
 import YakumanCard from "@/components/YakumanCard.vue";
-import Loading from "@/components/Loading.vue";
-
-import { useLoading } from "@/hooks/useLoading";
-const { showLoading, hideLoading, loaderMaskRef } = useLoading();
 
 import { useYakuman } from "./hooks/useYakuman";
-const { yakumanList } = useYakuman({ showLoading, hideLoading });
+const { yakumanList } = useYakuman();
 </script>
 
 <style scoped>
 /* styles */
 .yakuman-card {
     margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    /* 适用于手机屏幕的样式 */
+    .yakuman-card {
+        margin-top: 8px;
+    }
 }
 </style>
