@@ -8,7 +8,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: "/kon-app-frontend/",
+    base: "/",
     plugins: [
         vue(),
         vueDevTools(),
